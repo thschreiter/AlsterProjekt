@@ -9,7 +9,7 @@ package starwarsbobafettbountyhunter505;
  *
  * @author marvin.mohr
  */
-class Array {
+class Array { 
 
     static int toString(int[] meinArray) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
