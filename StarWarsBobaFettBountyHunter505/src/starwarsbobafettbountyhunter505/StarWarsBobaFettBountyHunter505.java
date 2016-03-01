@@ -51,19 +51,61 @@ public class StarWarsBobaFettBountyHunter505
                 if(Speicher[i][j].equals("F"))
                 {
                     Spielfeld[i][j] = ",";
-                    Spielfeld[i][j+1] = "F";
+                    Spielfeld[i][(j+1)%14] = "F";
                 }
-                if(Spielfeld[i][13].equals("F"))
+                /*if(Spielfeld[i][13].equals("F"))
                 {
                        Spielfeld[i][j] = ",";
                        Spielfeld[i][0] = "F";
-                }    
+                } */   
                 
                
                 if(Speicher[i][j].equals("H"))
                 {
                     Spielfeld[i][j] = ",";
-                    Spielfeld[i][j+1] = "H"; 
+                    int zufall = (int)(Math.random()*8);
+                    System.out.println(zufall);
+                    switch (zufall){
+                    
+                        case 0: Spielfeld[i][j]= "H"; break;
+                        
+                        case 1: Spielfeld[i][j]= ",";
+                                Spielfeld[(i+1)%14][j]= "H"; break;
+                        
+                        case 2:  if(i>0)
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i-1][j]= "H"; 
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[13][j]= "H";
+                        }
+                        break;
+                                 
+                        case 3:  Spielfeld[i][j]= ",";
+                                 Spielfeld[i][(j+1)%14]= "H"; break;
+                                          
+                        case 4:  Spielfeld[i][j]= ",";
+                                 Spielfeld[i][j-1]= "H"; break;
+                            
+                        case 5:  Spielfeld[i][j]= ",";
+                                 Spielfeld[(i+1)%14][(j+1)%14]= "H"; break;
+                        
+                        case 6:  Spielfeld[i][j]= ",";
+                                 Spielfeld[(i+1)%14][j-1]= "H"; break;
+                        
+                        case 7:  Spielfeld[i][j]= ",";
+                                 Spielfeld[i-1][(j+1)%14]= "H"; break;
+                                 
+                        case 8:  Spielfeld[i][j]= ",";
+                                 Spielfeld[i-1][j-1]= "H"; break;
+                                          
+                          
+                        default: break;
+                    }
+                    
                 }
                 if(Spielfeld[i][13].equals("H"))
                 {
@@ -98,8 +140,8 @@ public class StarWarsBobaFettBountyHunter505
         for(int i=0; i<30; i++)
         {
             //Würfel x //Würfel y
-            int x = (int) (Math.random()*10 + 0);
-            int y = (int) (Math.random()*10 + 0);
+            int x = (int) (Math.random()*14 + 0);
+            int y = (int) (Math.random()*14 + 0);
             Spielfeld[x][y] = "H";
         }
        
@@ -107,8 +149,8 @@ public class StarWarsBobaFettBountyHunter505
         for(int i=0; i<10; i++)
         {
             //Würfel x //Würfel y
-            int x = (int) (Math.random()*10 + 0);
-            int y = (int) (Math.random()*10 + 0);
+            int x = (int) (Math.random()*14 + 0);
+            int y = (int) (Math.random()*14 + 0);
             Spielfeld[x][y] = "F";
         }
            
