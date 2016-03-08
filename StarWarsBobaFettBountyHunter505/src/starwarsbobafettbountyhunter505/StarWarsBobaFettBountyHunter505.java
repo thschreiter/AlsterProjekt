@@ -44,34 +44,27 @@ public class StarWarsBobaFettBountyHunter505
             }          
         }
  
+        
         for(int i=0; i<Spielfeld.length; i++)    
         {
             for(int j=0; j<Spielfeld.length; j++)
             {
-                if(Speicher[i][j].equals("F"))
-                {
-                    Spielfeld[i][j] = ",";
-                    Spielfeld[i][(j+1)%14] = "F";
-                }
-                /*if(Spielfeld[i][13].equals("F"))
-                {
-                       Spielfeld[i][j] = ",";
-                       Spielfeld[i][0] = "F";
-                } */   
-                
-               
                 if(Speicher[i][j].equals("H"))
                 {
-                    Spielfeld[i][j] = ",";
+                    //Spielfeld[i][j] = ",";
                     int zufall = (int)(Math.random()*8);
                     System.out.println(zufall);
                     switch (zufall){
                     
                         case 0: Spielfeld[i][j]= "H"; break;
                         
-                        case 1: Spielfeld[i][j]= ",";
-                                Spielfeld[(i+1)%14][j]= "H"; break;
-                        
+                        case 1:
+                            if (Spielfeld[(i+1)%14][j].equals(","))
+                            {   Spielfeld[i][j]= ",";
+                                Spielfeld[(i+1)%14][j]= "H";
+                            }
+                        else
+                            Spielfeld[i][j]= "H"; break;
                         case 2:  if(i>0)
                         {
                             Spielfeld[i][j]= ",";
@@ -82,39 +75,178 @@ public class StarWarsBobaFettBountyHunter505
                             Spielfeld[i][j]= ",";
                             Spielfeld[13][j]= "H";
                         }
-                        break;
+                          break;
                                  
                         case 3:  Spielfeld[i][j]= ",";
-                                 Spielfeld[i][(j+1)%14]= "H"; break;
-                                          
-                        case 4:  Spielfeld[i][j]= ",";
-                                 Spielfeld[i][j-1]= "H"; break;
-                            
+                                 Spielfeld[i][(j+1)%14]= "H"; 
+                                  break;         
+                        case 4: if(j>0) 
+                        {    
+                                 Spielfeld[i][j]= ",";
+                                 Spielfeld[i][j-1]= "H"; 
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i][13]= "H";
+                        }    break;  
+               
                         case 5:  Spielfeld[i][j]= ",";
-                                 Spielfeld[(i+1)%14][(j+1)%14]= "H"; break;
+                                 Spielfeld[(i+1)%14][(j+1)%14]= "H"; 
+                             break;
                         
-                        case 6:  Spielfeld[i][j]= ",";
-                                 Spielfeld[(i+1)%14][j-1]= "H"; break;
+                        case 6:  if(j>0)
+                        {    
+                                 Spielfeld[i][j]= ",";
+                                 Spielfeld[(i+1)%14][j-1]= "H";
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i][13]= "H";
+                        } 
+                         break;   
                         
-                        case 7:  Spielfeld[i][j]= ",";
-                                 Spielfeld[i-1][(j+1)%14]= "H"; break;
-                                 
-                        case 8:  Spielfeld[i][j]= ",";
-                                 Spielfeld[i-1][j-1]= "H"; break;
-                                          
+                        case 7:  if(i>0)
+                        {    
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i-1][(j+1)%14]= "H"; break;
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[13][j]= "H"; 
+                        }
+                          break;
+                        
+                        case 8:  if(i>0)
+                        {    
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i-1][j-1]= "H"; break;
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[13][j]= "H"; 
+                        }
+                        if(j>0)
+                           {    
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i-1][j-1]= "H"; break;
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i][13]= "H"; 
+                        } 
+                        break;
                           
                         default: break;
                     }
                     
                 }
-                if(Spielfeld[i][13].equals("H"))
-                {
-                    Spielfeld[i][j] = ",";
-                    Spielfeld[i][0] = "H"; 
-                }    
+              
                 
             }
         }
+        
+        for(int i=0; i<Spielfeld.length; i++)    
+        {
+            for(int j=0; j<Spielfeld.length; j++)
+            {
+             
+                if(Speicher[i][j].equals("F"))
+                {
+                    //Spielfeld[i][j] = ",";
+                    int zufall = (int)(Math.random()*8);
+                    System.out.println(zufall);
+                    switch (zufall){
+                    
+                        case 0: Spielfeld[i][j]= "F"; break;
+                        
+                        case 1: Spielfeld[i][j]= ",";
+                                Spielfeld[(i+1)%14][j]= "F"; break;
+                        
+                        case 2:  if(i>0)
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i-1][j]= "F"; 
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[13][j]= "F";
+                        }
+                        break;
+                                 
+                        case 3:  Spielfeld[i][j]= ",";
+                                 Spielfeld[i][(j+1)%14]= "F"; break;
+                                          
+                        case 4: if(j>0) 
+                        {    
+                                 Spielfeld[i][j]= ",";
+                                 Spielfeld[i][j-1]= "F"; 
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i][13]= "F";
+                        }  break;  
+               
+                        case 5:  Spielfeld[i][j]= ",";
+                                 Spielfeld[(i+1)%14][(j+1)%14]= "F"; break;
+                        
+                        case 6:  if(j>0)
+                        {    
+                                 Spielfeld[i][j]= ",";
+                                 Spielfeld[(i+1)%14][j-1]= "F";
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i][13]= "F";
+                        } break;   
+                        
+                        case 7:  if(i>0)
+                        {    
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i-1][(j+1)%14]= "F"; break;
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[13][j]= "F"; 
+                        } break;   
+                        
+                        case 8:  if(i>0)
+                        {    
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i-1][j-1]= "F"; break;
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[13][j]= "F"; 
+                        }
+                        if(j>0)
+                           {    
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i-1][j-1]= "F"; break;
+                        }
+                        else
+                        {
+                            Spielfeld[i][j]= ",";
+                            Spielfeld[i][13]= "F"; 
+                        } 
+                            
+                          
+                        default: break;
+                    }
+                    
+                }
+            }  
+        }       
+        
     }
     
     
@@ -137,7 +269,7 @@ public class StarWarsBobaFettBountyHunter505
         }
         
         //Hasen
-        for(int i=0; i<30; i++)
+        for(int i=0; i<16; i++)
         {
             //Würfel x //Würfel y
             int x = (int) (Math.random()*14 + 0);
@@ -146,7 +278,7 @@ public class StarWarsBobaFettBountyHunter505
         }
        
         //Füchse
-        for(int i=0; i<10; i++)
+        for(int i=0; i<4; i++)
         {
             //Würfel x //Würfel y
             int x = (int) (Math.random()*14 + 0);
