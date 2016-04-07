@@ -385,7 +385,8 @@ public class StarWarsBobaFettBountyHunter505 {
                 FrameAPI.initString(Spielfeld.length, Spielfeld);
                 FrameAPI.setPlayground();
             }
-        } while (!FrameAPI.allDead);
+        } while (!FrameAPI.HasenDead);
+                
 
         Ausgabe(Spielfeld);
 
@@ -395,6 +396,23 @@ public class StarWarsBobaFettBountyHunter505 {
         if (Eingabe.equals("Ja")) {
             finished = true;
         }
-
+        
     }
+}
+
+
+
+if
+{
+    System.out.print("Das Spiel ist beendet, mal sehen wer gewonnen hat!")
+}
+
+
+if(AnzahlHasen<AnzahlFüchse)
+{
+    System.out.print("Die Füchse haben gewonnen! Yeah!")
+}
+else()
+{
+    System.out.print("Die Hasen haben gewonnen! Yippy a Yeah Schweinebacke!")
 }
